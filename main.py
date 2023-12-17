@@ -14,7 +14,7 @@ class Fusion:
         :param str file_dir: The directory of the file we want to use.
         :return:
         """
-        pitches, durations, velocities = [], [], []
+        pitches, durations, chords = [], [], []
 
         midi_data = converter.parse(file_dir)  # loads MIDI file and makes it a Music21 stream object
 
@@ -29,13 +29,20 @@ class Fusion:
 
         print(notes_to_parse)
         for element in notes_to_parse:  # goes through each note in the midi file
-            match type(element):
+            match type(element):  # depending on element type, we extract certain attributes
                 case note.Note:
                     pitches.append(str(element.pitch))
                     durations.append(str(element.duration.quarterLength))
 
                 case chord.Chord:
-                    print(".".join(str(_) for _ in element.normalOrder))
+                    chords.append(".".join(str(_) for _ in element.normalOrder))
+
+        # convert pitch, duration, and velocity to numpy arrays: a more efficient data structure for numerical operation
+        # pitches = np.array(pitches)
+        # durations = np.array(durations)
+        # chords = np.array(chords)
+        #
+        # pitches /= 127  # normalises pitch to be between 0 and 1
 
         # extract certain attributes from midi data
         # pitches, durations, velocities = [], [], []
@@ -49,10 +56,7 @@ class Fusion:
         # print(durations)
         # print(velocities)
         #
-        # # convert pitch, duration, and velocity to numpy arrays: a more efficient data structure for numerical operation
-        # pitches = np.array(pitches)
-        # durations = np.array(durations)
-        # velocities = np.array(velocities)
+
         #
         # print(pitches)
         # print(durations)
