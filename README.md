@@ -1,10 +1,14 @@
 # Fusion
  AI Generated Music
+***
 
+**Requirements:**
+> - scikit-learn >= 1.3.2
+> - tensorflow >= 2.15.0
+> - music21 >= 9.1.0
+> - numpy >= 1.26.2
+> - pandas >= 2.1.4
+
+***
 ## Dataset
  https://www.kaggle.com/datasets/zakarii/lofi-hip-hop-midi/
- 
-## Guides being used
-https://medium.com/mlearning-ai/how-to-generate-music-using-machine-learning-72360ba4a085
-
-https://thehackerstuff.com/getting-started-with-ai-music-generation-exploring-the-possibilities/
