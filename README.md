@@ -7,7 +7,6 @@
 > - tensorflow >= 2.15.0
 > - music21 >= 9.1.0
 > - numpy >= 1.26.2
-> - pandas >= 2.1.4
 
 ***
 ## Dataset
